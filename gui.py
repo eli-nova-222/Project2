@@ -1,5 +1,5 @@
 from tkinter import *
-from logic import *
+from calculation import *
 
 class Gui:
 	def __init__(self, window):
