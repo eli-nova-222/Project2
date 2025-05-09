@@ -6,6 +6,7 @@ def main():
     window.title('Course grade calculator')
     window.geometry('400x400')
     window.resizable(False, False)
+
     Gui(window)
     window.mainloop()
 
