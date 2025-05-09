@@ -33,7 +33,6 @@ class Gui:
 		self.label_assess1.pack(side='left', pady=10, padx=5)
 		self.input_assess1_score.pack(side='left', padx=5)
 		self.input_assess1_weight.pack(side='left', padx=5)
-		#self.frame_assess1.pack(anchor='w')
 
 #frame for assessment 2
 		self.frame_assess2 = Frame(self.window)
@@ -43,7 +42,6 @@ class Gui:
 		self.label_assess2.pack(side='left', pady=10, padx=5)
 		self.input_assess2_score.pack(side='left', padx=5)
 		self.input_assess2_weight.pack(side='left', padx=5)
-		#self.frame_assess2.pack(anchor='w')
 
 #frame for assessment 3
 		self.frame_assess3 = Frame(self.window)
@@ -53,7 +51,6 @@ class Gui:
 		self.label_assess3.pack(side='left', pady=10, padx=5)
 		self.input_assess3_score.pack(side='left', padx=5)
 		self.input_assess3_weight.pack(side='left', padx=5)
-		#self.frame_assess3.pack(anchor='w')
 
 #frame for assessment 4
 		self.frame_assess4 = Frame(self.window)
@@ -63,7 +60,6 @@ class Gui:
 		self.label_assess4.pack(side='left', pady=10, padx=5)
 		self.input_assess4_score.pack(side='left', padx=5)
 		self.input_assess4_weight.pack(side='left', padx=5)
-		#self.frame_assess4.pack(anchor='w')
 
 #frame for assessment 5
 		self.frame_assess5 = Frame(self.window)
@@ -73,7 +69,6 @@ class Gui:
 		self.label_assess5.pack(side='left', pady=10, padx=5)
 		self.input_assess5_score.pack(side='left', padx=5)
 		self.input_assess5_weight.pack(side='left', padx=5)
-		#self.frame_assess5.pack(anchor='w')
 
 		# label for notices
 		self.label_notice = Label(self.window, text='')
@@ -125,7 +120,4 @@ class Gui:
 
 
 
-
-
-		#command = self.frame_assess1.pack_forget
 
