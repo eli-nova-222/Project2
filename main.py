@@ -1,15 +1,11 @@
-from guiV1 import *
-
+from logic import *
 
 def main():
-    window = Tk()
-    window.title('Course grade calculator')
-    window.geometry('400x400')
-    window.resizable(False, False)
-
-    Gui(window)
-    window.mainloop()
+	application = QApplication([])
+	window = Logic()
+	window.show()
+	application.exec()
 
 
 if __name__ == '__main__':
-    main()
+	main()
