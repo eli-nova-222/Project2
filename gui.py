@@ -102,6 +102,9 @@ class Ui_MainWindow(object):
         self.input_assess5 = QtWidgets.QLineEdit(parent=self.centralwidget)
         self.input_assess5.setGeometry(QtCore.QRect(130, 330, 151, 20))
         self.input_assess5.setObjectName("input_assess5")
+        self.button_generate = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.button_generate.setGeometry(QtCore.QRect(130, 100, 61, 21))
+        self.button_generate.setObjectName("button_generate")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 300, 18))
@@ -130,6 +133,7 @@ class Ui_MainWindow(object):
         self.button_submit.setText(_translate("MainWindow", "SUBMIT"))
         self.score_label.setText(_translate("MainWindow", "100%"))
         self.letter_label.setText(_translate("MainWindow", "A"))
+        self.button_generate.setText(_translate("MainWindow", "generate?"))
 
 
 if __name__ == "__main__":
