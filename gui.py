@@ -49,7 +49,7 @@ class Ui_MainWindow(object):
         self.label_notice.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_notice.setObjectName("label_notice")
         self.label_avg_letter = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label_avg_letter.setGeometry(QtCore.QRect(40, 460, 111, 16))
+        self.label_avg_letter.setGeometry(QtCore.QRect(70, 460, 91, 21))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.label_avg_letter.setFont(font)
@@ -116,7 +116,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Average grade application"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Average grade"))
         self.label_course.setText(_translate("MainWindow", "Course:"))
         self.label_num_assess.setText(_translate("MainWindow", "No. of Assessments:"))
         self.label_assess1.setText(_translate("MainWindow", " Assement 1:"))
@@ -125,7 +125,7 @@ class Ui_MainWindow(object):
         self.label_assess4.setText(_translate("MainWindow", " Assement 4:"))
         self.label_assess5.setText(_translate("MainWindow", " Assement 5:"))
         self.label_notice.setText(_translate("MainWindow", "ope"))
-        self.label_avg_letter.setText(_translate("MainWindow", "Average Letter Grade:"))
+        self.label_avg_letter.setText(_translate("MainWindow", "Average Letter:"))
         self.label_avg_score.setText(_translate("MainWindow", "Average Score:"))
         self.button_submit.setText(_translate("MainWindow", "SUBMIT"))
         self.score_label.setText(_translate("MainWindow", "100%"))
