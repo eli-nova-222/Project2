@@ -1,4 +1,4 @@
-from gui import *
+from guiV1 import *
 
 #def __init__(self):
 	#self.
