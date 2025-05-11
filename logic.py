@@ -31,12 +31,13 @@ class Logic(QMainWindow, Ui_MainWindow):
         #set notice text blank
         self.label_notice.setText('')
 
-#generate slots
+        #generate button action
         self.button_generate.clicked.connect(lambda: self.generate())
+        #submit button action
         self.button_submit.clicked.connect(lambda : self.submit())
 
+    #function for generate button
     def generate(self):
-
         try:
             course_name = str(self.input_course.text().strip())
             num_assess = int(self.input_num_assess.text().strip())
@@ -129,6 +130,7 @@ class Logic(QMainWindow, Ui_MainWindow):
         except UserWarning:
             self.label_notice.setText(f'Must enter course identifier')
 
+    #function for submit button
     def submit(self):
         assess_val = self.generate()
         self.label_avg_score.show()
@@ -141,14 +143,12 @@ class Logic(QMainWindow, Ui_MainWindow):
                 self.score_label.setText(f'{average_scores:.2f}')
                 self.score_label.show()
                 self.letter_score(average_scores)
-
             elif assess_val == 2:
                 summed_scores = int(self.input_assess1.text()) + int(self.input_assess2.text())
                 average_scores = summed_scores / 2
                 self.score_label.setText(f'{average_scores:.2f}')
                 self.score_label.show()
                 self.letter_score(average_scores)
-
             elif assess_val == 3:
                 summed_scores = (int(self.input_assess1.text()) + int(self.input_assess2.text())
                                  + int(self.input_assess3.text()))
@@ -156,7 +156,6 @@ class Logic(QMainWindow, Ui_MainWindow):
                 self.score_label.setText(f'{average_scores:.2f}')
                 self.score_label.show()
                 self.letter_score(average_scores)
-
             elif assess_val == 4:
                 summed_scores = (int(self.input_assess1.text()) + int(self.input_assess2.text())
                                  + int(self.input_assess3.text()) + int(self.input_assess4.text()))
@@ -164,7 +163,6 @@ class Logic(QMainWindow, Ui_MainWindow):
                 self.score_label.setText(f'{average_scores:.2f}')
                 self.score_label.show()
                 self.letter_score(average_scores)
-
             elif assess_val == 5:
                 summed_scores = (int(self.input_assess1.text()) + int(self.input_assess2.text())
                                  + int(self.input_assess3.text()) + int(self.input_assess4.text())
@@ -180,6 +178,7 @@ class Logic(QMainWindow, Ui_MainWindow):
         else:
             self.write_file()
 
+    #function for letter score
     def letter_score(self,grade_var):
         letter_val = grade_var
         if letter_val >= 90:
@@ -203,6 +202,7 @@ class Logic(QMainWindow, Ui_MainWindow):
             self.letter_label.setText(letter_grade)
             self.letter_label.show()
 
+    #function to write to csv file
     def write_file(self):
         assess_val = self.generate()
         course_id = self.input_course.text()
