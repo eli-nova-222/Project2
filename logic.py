@@ -1,5 +1,4 @@
 from PyQt6.QtWidgets import *
-from PyQt6.uic.pyuic import generate
 
 from gui import *
 import csv
@@ -37,6 +36,7 @@ class Logic(QMainWindow, Ui_MainWindow):
         self.button_submit.clicked.connect(lambda : self.submit())
 
     def generate(self):
+
         try:
             course_name = str(self.input_course.text().strip())
             num_assess = int(self.input_num_assess.text().strip())
@@ -133,29 +133,38 @@ class Logic(QMainWindow, Ui_MainWindow):
         assess_val = self.generate()
         self.label_avg_score.show()
         self.label_avg_letter.show()
+
         try:
             if assess_val == 1:
                 summed_scores = int(self.input_assess1.text())
                 average_scores = summed_scores/1
                 self.score_label.setText(f'{average_scores:.2f}')
                 self.score_label.show()
+                self.letter_score(average_scores)
+
             elif assess_val == 2:
                 summed_scores = int(self.input_assess1.text()) + int(self.input_assess2.text())
                 average_scores = summed_scores / 2
                 self.score_label.setText(f'{average_scores:.2f}')
                 self.score_label.show()
+                self.letter_score(average_scores)
+
             elif assess_val == 3:
                 summed_scores = (int(self.input_assess1.text()) + int(self.input_assess2.text())
                                  + int(self.input_assess3.text()))
                 average_scores = summed_scores / 3
                 self.score_label.setText(f'{average_scores:.2f}')
                 self.score_label.show()
+                self.letter_score(average_scores)
+
             elif assess_val == 4:
                 summed_scores = (int(self.input_assess1.text()) + int(self.input_assess2.text())
                                  + int(self.input_assess3.text()) + int(self.input_assess4.text()))
                 average_scores = summed_scores / 4
                 self.score_label.setText(f'{average_scores:.2f}')
                 self.score_label.show()
+                self.letter_score(average_scores)
+
             elif assess_val == 5:
                 summed_scores = (int(self.input_assess1.text()) + int(self.input_assess2.text())
                                  + int(self.input_assess3.text()) + int(self.input_assess4.text())
@@ -163,6 +172,69 @@ class Logic(QMainWindow, Ui_MainWindow):
                 average_scores = summed_scores / 5
                 self.score_label.setText(f'{average_scores:.2f}')
                 self.score_label.show()
+                self.letter_score(average_scores)
 
         except ValueError:
             self.label_notice.setText(f'Please enter numerical scores')
+
+        else:
+            self.write_file()
+
+    def letter_score(self,grade_var):
+        letter_val = grade_var
+        if letter_val >= 90:
+            letter_grade = "A"
+            self.letter_label.setText(letter_grade)
+            self.letter_label.show()
+        elif letter_val >= 80:
+            letter_grade = "B"
+            self.letter_label.setText(letter_grade)
+            self.letter_label.show()
+        elif letter_val >= 70:
+            letter_grade = "C"
+            self.letter_label.setText(letter_grade)
+            self.letter_label.show()
+        elif letter_val >= 60:
+            letter_grade = "D"
+            self.letter_label.setText(letter_grade)
+            self.letter_label.show()
+        elif letter_val <= 59:
+            letter_grade = "F"
+            self.letter_label.setText(letter_grade)
+            self.letter_label.show()
+
+    def write_file(self):
+        assess_val = self.generate()
+        course_id = self.input_course.text()
+        test1 = 0
+        test2 = 0
+        test3 = 0
+        test4 = 0
+        test5 = 0
+
+        if assess_val == 1:
+            test1 = self.input_assess1.text()
+        elif assess_val == 2:
+            test1 = self.input_assess1.text()
+            test2 = self.input_assess2.text()
+        elif assess_val == 3:
+            test1 = self.input_assess1.text()
+            test2 = self.input_assess2.text()
+            test3 = self.input_assess3.text()
+        elif assess_val == 4:
+            test1 = self.input_assess1.text()
+            test2 = self.input_assess2.text()
+            test3 = self.input_assess3.text()
+            test4 = self.input_assess4.text()
+        elif assess_val == 5:
+            test1 = self.input_assess1.text()
+            test2 = self.input_assess2.text()
+            test3 = self.input_assess3.text()
+            test4 = self.input_assess4.text()
+            test5 = self.input_assess5.text()
+
+
+        with open('grades.csv', 'a+', newline='') as csvfile:
+            writer = csv.writer(csvfile)
+            grade_data = [course_id, test1, test2, test3, test4, test5]
+            writer.writerow(grade_data)
