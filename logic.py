@@ -1,5 +1,4 @@
 from PyQt6.QtWidgets import *
-
 from gui import *
 import csv
 
@@ -179,7 +178,7 @@ class Logic(QMainWindow, Ui_MainWindow):
             self.write_file()
 
     #function for letter score
-    def letter_score(self,grade_var):
+    def letter_score(self,grade_var: float):
         letter_val = grade_var
         if letter_val >= 90:
             letter_grade = "A"
